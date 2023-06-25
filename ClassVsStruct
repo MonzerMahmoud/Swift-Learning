@@ -1,3 +1,8 @@
+// Reference vs Value Semantics
+// Inheritance
+// Mutability
+// Memory Management
+// conformance for classes and protocols
 class Dog {
     var name = "doggy"
 }
