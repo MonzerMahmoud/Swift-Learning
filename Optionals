@@ -1,0 +1,82 @@
+var a: Int = 1
+var b: Int
+// var c: Int = nil // cant assign nil to non optional type
+var d: Int? = 1
+var e: Int?
+var f: Int? = nil
+var g: Int! = 1
+var h: Int!
+var i: Int! = nil
+
+// func printing() {
+//     print(a)
+// // print(b) // cant use non optional before ininting 
+// print(d)
+// print(e)
+// print(f)
+// print(g)
+// print(h)
+// print(i)
+// }
+
+// un wrapping optionals
+
+// using optional binding: guard-let
+func unWrappingUsingBinding(){
+    // guard let a = a else { return }
+    // print(a) // guard-let cannot be used on non optional types
+    
+    guard let d = d else { return }
+    print(d)
+    
+    guard let e = e else { return }
+    print(e)
+    
+    guard let f = f else { return }
+    print(f)
+    
+    // guard let g = g else { return }
+    // print(g)
+    
+    // guard let h = h else { return }
+    // print(h)
+    
+    // guard let i = i else { return }
+    // print(i) 
+    
+    // guard - let cannot be used on impilict optionals
+    
+}
+
+// using force un-wrapping 
+
+func unWrappingUsingForce() {
+    print(d!)
+    //print(e!)
+    //print(f!)
+    // Can not force unwrappe nil
+    
+    print(g!)
+    //print(h!)
+    // print(i!)
+    // Can not force unwrappe nil
+}
+
+// optional chainig
+struct Person {
+    var name: String?
+    var age: Int
+}
+
+let person1: Person = Person(name: "John", age: 30)
+print(person1.name!)
+print(person1.age)
+let person2: Person? = Person(name: "John", age: 30)
+print(person2!.name!)
+print(person2!.age)
+
+
+
+
+
+
