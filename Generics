@@ -22,6 +22,33 @@ Code Reusability: Generics allow you to write flexible code that can be reused w
 Type Safety: Generics provide compile-time type checking, ensuring that the correct types are used with generic code.
 Abstraction: Generics enable you to write generic algorithms, data structures, and protocols that can work with a wide range of types, promoting abstraction and modularity.
 
+// Example 1:
+// A good demostration of Genearics is Result enum.
+// I will recreate the enum and use it
+
+enum Result<T, E: Error> { // In this line we define an Generic type enum named Result which contains T,E as a types and E has a Type constrain.
+    // In each case we will have a param with one of the types
+    case success(T) 
+    case failure(E)
+}
+
+func fetchData() -> Result<String, Error> { // This function returns a Result type var which contains string in case of sucess and error in case of fail
+    // Simulating a successful data fetch
+    let data = "Hello, World!"
+    return .success(data)
+}
+
+let result = fetchData()
+
+switch result {
+case .success(let data):
+    print("Data: \(data)")
+
+case .failure(let error):
+    print("Error: \(error)")
+}
+
+// Example 2
 // Stack is a Genearic Type
 // It has a Type Constrain : Comparable
 // And uses a Type Parameter T, but you need to define it in initing
