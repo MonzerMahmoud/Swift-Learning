@@ -1,0 +1,19 @@
+class Dog {
+    var name = "doggy"
+}
+
+let dog1 = Dog()
+let dog2 = dog1
+
+dog2.name = "bad doggy"
+print(dog1.name)
+
+struct Cat {
+    var name = "caty"
+}
+
+var cat1 = Cat()
+var cat2 = cat1
+
+cat2.name = "bad caty"
+print(cat1.name)
