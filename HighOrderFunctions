@@ -1,0 +1,72 @@
+Higher-order functions are functions that take other functions as parameters or return functions as their results. 
+In Swift, higher-order functions are an essential part of functional programming and allow for more concise and expressive code.
+
+Map:
+The map function transforms each element of a collection by applying a provided closure to it. 
+It returns a new collection with the transformed elements in the same order. 
+For example:
+let numbers = [1, 2, 3, 4, 5]
+let squaredNumbers = numbers.map { $0 * $0 } // [1, 4, 9, 16, 25]
+
+Filter:
+The filter function selects elements from a collection based on a given condition specified in a closure. 
+It returns a new collection containing only the elements that meet the condition. 
+For example:
+let numbers = [1, 2, 3, 4, 5]
+let evenNumbers = numbers.filter { $0 % 2 == 0 } // [2, 4]
+
+Reduce:
+The reduce function combines all elements of a collection into a single value by applying a closure that defines the combining operation. 
+It takes an initial value and the closure that specifies how to accumulate the values. 
+For example:
+let numbers = [1, 2, 3, 4, 5]
+let sum = numbers.reduce(0, +) // 15
+
+Sort:
+The sort function arranges the elements of a collection based on a given sorting condition provided in a closure. 
+It returns a new sorted collection. 
+For example:
+let numbers = [5, 3, 1, 4, 2]
+let sortedNumbers = numbers.sorted { $0 < $1 } // [1, 2, 3, 4, 5]
+
+CompactMap:
+The compactMap function transforms and filters a collection by applying a closure that returns an optional value. 
+It unwraps the optional values and removes any nil elements from the resulting collection. 
+For example:
+let strings = ["1", "2", "3", "4", "5", "abc"]
+let numbers = strings.compactMap { Int($0) } // [1, 2, 3, 4, 5]
+
+ForEach:
+The forEach function performs an operation on each element of a collection by applying a closure. 
+It iterates over the elements but doesn't return a new collection. 
+For example:
+let numbers = [1, 2, 3, 4, 5]
+numbers.forEach { print($0) } // Prints each number on a new line
+
+FlatMap:
+The flatMap function is similar to map, but it also flattens the resulting nested arrays or optionals into a single-level collection. It applies a closure to each element and then concatenates the non-nil results. For example:
+let nestedArrays = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+let flattenedArray = nestedArrays.flatMap { $0 } // [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+Contains:
+The contains function checks whether a collection contains an element that satisfies a given condition specified in a closure. It returns a boolean value indicating the result. For example:
+let numbers = [1, 2, 3, 4, 5]
+let hasEvenNumber = numbers.contains { $0 % 2 == 0 } // true
+
+AllSatisfy:
+The allSatisfy function checks if all elements in a collection satisfy a given condition specified in a closure. It returns a boolean value indicating whether the condition is true for all elements. For example:
+let numbers = [2, 4, 6, 8, 10]
+let allEven = numbers.allSatisfy { $0 % 2 == 0 } // true
+
+First:
+The first function returns the first element in a collection that satisfies a given condition specified in a closure. It can also return the first element in the collection without a condition. For example:
+let numbers = [1, 2, 3, 4, 5]
+let firstEvenNumber = numbers.first { $0 % 2 == 0 } // 2
+let firstNumber = numbers.first // 1
+
+Last:
+The last function returns the last element in a collection that satisfies a given condition specified in a closure. It can also return the last element in the collection without a condition. For example:
+let numbers = [1, 2, 3, 4, 5]
+let lastEvenNumber = numbers.last { $0 % 2 == 0 } // 4
+let lastNumber = numbers.last // 5
+
