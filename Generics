@@ -1,0 +1,72 @@
+Generics allow you to write flexible and reusable functions, types, and protocols that can work with a variety of data types. 
+They enable you to create code that is abstracted from specific types and promotes code reusability, type safety, and maintainability.
+
+Here are the key aspects and features of generics:
+
+1. Type Parameters:
+Generics in Swift use type parameters, which are placeholders for actual types. 
+Type parameters are specified within angle brackets (<>) and can have any valid name. 
+They allow you to define functions, structures, classes, and protocols that operate on different types.
+
+2. Type Constraints:
+Generics can include type constraints to restrict the types that can be used with the generic code. 
+Type constraints define requirements on the type parameters, such as requiring them to conform to a specific protocol or to be a subclass of a certain class.
+
+3. Generic Types:
+Generics can also be used to create generic types, such as generic structures and classes, which can work with multiple types. 
+This allows you to define reusable components that adapt to different data types.
+
+Generics provide several benefits in iOS development:
+
+Code Reusability: Generics allow you to write flexible code that can be reused with different types, reducing the need for duplicate code.
+Type Safety: Generics provide compile-time type checking, ensuring that the correct types are used with generic code.
+Abstraction: Generics enable you to write generic algorithms, data structures, and protocols that can work with a wide range of types, promoting abstraction and modularity.
+
+// Stack is a Genearic Type
+// It has a Type Constrain : Comparable
+// And uses a Type Parameter T, but you need to define it in initing
+
+struct Stack<T: Comparable> {
+
+    init(getElements: [T]) {
+        elements = getElements 
+    }
+    private var elements: [T] = []
+    
+    mutating func push(_ element: T) {
+        elements.append(element)
+    }
+    
+    mutating func pop() -> T? {
+        return elements.popLast()
+    }
+    
+    mutating func biggest() -> T? {
+        return elements.max()
+    }
+    
+}
+
+
+func swap<T: Comparable>(_ a: inout T, _ b: inout T) {
+    let temp = a
+    a = b
+    b = temp
+}
+
+var a: Stack<Int> = Stack(getElements: [])
+a.push(3)
+a.push(5)
+
+print(a)
+print(a.biggest()!)
+// var x = "3"
+// var y = "a"
+
+// print(x)
+// print(y)
+
+// swap(&x,&y)
+
+// print(x)
+// print(y)
